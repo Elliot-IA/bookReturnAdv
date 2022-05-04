@@ -33,7 +33,7 @@ div.password-confirm{visibility:hidden;}
     width: 84%;
     padding: 15px; 
     margin: 30px;
-height: 175%;}
+height: 175%;border-width: 1px 1px 0px 1px;}
 
 .subWrap{
     width: 90%;
@@ -42,13 +42,13 @@ height: 175%;}
 }
 #valueWrapInside{
 
-font-size: 30vw;}
+font-size: 17vw;}
 #valueWrap{
 
 font-size: 40px;}
 #estimationWrap{
 
-display: inline-block;margin-left: auto;margin-right: auto;transform: translate(0px, -60px);}
+display: inline-block;margin-left: auto;margin-right: auto;transform: translate(0px, -49px);}
 
 
 #estimateWrap{
@@ -82,3 +82,19 @@ input{
 
 #insideWrap{
     border: 1px solid black; width: 90%; padding: 15px; margin: 19px;}
+
+#seeyothen{
+    display: none;
+}
+#checkIMG{
+    height: 100px;
+    display: block;
+    
+margin-left: auto;margin-right: auto;position: relative;}
+#checkMSG{
+    font-size: 30px;
+    color: forestgreen;
+display: inline-block;text-align: center;font-weight: bold;}
+#BBAppVolImg{
+
+}

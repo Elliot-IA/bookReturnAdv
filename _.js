@@ -4,7 +4,15 @@ var orgTotal = 0;
 document.getElementById("addRow").addEventListener("click", () => {
     document.getElementById("columns").innerHTML = document.getElementById("columns").innerHTML+rowCode;
 });
+document.getElementById("timeWrap").addEventListener("click", () => {
+    document.getElementById("seeyothen").style.display = "none";
+    setTimeout(()=>{
+        document.getElementById("seeyothen").style.display = "block";
+        document.getElementById("timeWrap").style.display = "none";
+    },100);
+});
 
+var buyBackEst = 0;
 document.getElementById("estimateBB").addEventListener("click", () => {
     var allMoneyVals = document.querySelectorAll(".moneyInput");
     console.log(allMoneyVals);
@@ -14,6 +22,9 @@ document.getElementById("estimateBB").addEventListener("click", () => {
             orgTotal += Number(row.value);
         }
     });
+    
+    buyBackEst = Number.parseFloat(orgTotal*0.04512).toFixed(2);
+    
     document.getElementById("wrapper1").style.display = "none";
     
     document.getElementById("wrapper1").style.display = "none";
@@ -23,10 +34,8 @@ document.getElementById("estimateBB").addEventListener("click", () => {
         document.getElementById("loadingGIF").style.display = "none";
         document.getElementById("wrapper2").style.display = "block";
     },500);
-        
-    /*.toArray().forEach((moneyInput)=>{
-        console.log(moneyInput.innerHTML);
-    });*/
+    
+    valueWrapInside.innerHTML = buyBackEst;
 });
 
 
