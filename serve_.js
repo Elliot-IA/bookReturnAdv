@@ -17,3 +17,43 @@ app.listen(PORT, function(){
 app.get("/", function(req, res){
     res.sendFile(__dirname+"/_.html");        
 });
+
+console.log("Attempting to connect to database...");
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://Napoleon1234:socialEntreprenuer78@activity.xleee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+client.connect(err => {
+    console.log("connection established!");
+
+    collection = client.db("act").collection("aSub");
+
+    collection.findOne({timesOpened:0}).then(data=>{
+        console.log("All Collection Data:");
+        console.log(JSON.stringify(data));
+    }).catch(err=>{
+        console.log(err)
+    });
+
+    // perform actions on the collection object
+    //client.close();
+});
+
+
+
+
+/*var collection = null;
+client.connect(err => {
+    collection = client.db("act").collection("aSub");
+
+
+    collection.find({}).toArray((error, data)=>{
+        console.log(data);
+    });
+
+
+    setTimeout(()=>{
+        console.log("Closing mongoDB session");
+        client.close();
+    },2000);
+});
+*/
