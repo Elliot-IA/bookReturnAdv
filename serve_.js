@@ -60,6 +60,7 @@ app.post("/", function(req, res){
         console.log("decrementAppointments");
         counts.appointments -= 1;
     }
+    res.status(204).send();
 });
 
 
