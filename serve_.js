@@ -17,7 +17,14 @@ app.listen(PORT, function(){
 app.get("/", function(req, res){
     res.sendFile(__dirname+"/_.html");        
 });
+app.get("/page927", function(req, res){     //Acsess the super secret admin page
+    console.log("returning counts...");
+    res.json(counts);
+});
 
+var counts = {"visits": 0,"estimations":0,"appointments":0}; 
+
+/*
 console.log("Attempting to connect to database...");
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://Napoleon1234:socialEntreprenuer78@activity.xleee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
@@ -37,23 +44,33 @@ client.connect(err => {
     // perform actions on the collection object
     //client.close();
 });
-
-
-
-
-/*var collection = null;
-client.connect(err => {
-    collection = client.db("act").collection("aSub");
-
-
-    collection.find({}).toArray((error, data)=>{
-        console.log(data);
-    });
-
-
-    setTimeout(()=>{
-        console.log("Closing mongoDB session");
-        client.close();
-    },2000);
-});
 */
+
+app.post("/", function(req, res){
+    if(req.body.command == "incrementVisits"){
+        console.log("incrementVisits");
+        counts.visits += 1;
+    }else if(req.body.command == "incrementEstimations"){
+        console.log("incrementEstimations");
+        counts.estimations += 1;
+    }else if(req.body.command == "incrementAppointments"){
+        console.log("incrementAppointments");
+        counts.appointments += 1;
+    }else if(req.body.command == "decrementAppointments"){
+        console.log("decrementAppointments");
+        counts.appointments -= 1;
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+

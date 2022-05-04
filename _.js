@@ -10,6 +10,7 @@ document.getElementById("timeWrap").addEventListener("click", () => {
         document.getElementById("seeyothen").style.display = "block";
         document.getElementById("timeWrap").style.display = "none";
     },100);
+    incrementAppointments();
 });
 
 var buyBackEst = 0;
@@ -36,9 +37,30 @@ document.getElementById("estimateBB").addEventListener("click", () => {
     },500);
     
     valueWrapInside.innerHTML = buyBackEst;
+    
+    incrementEstimations();
 });
 
 
 var rowCode = "<tr>\r\n                        <td><input type=\"text\"><\/td>\r\n\r\n                <td>$<input type=\"text\" class=\"moneyInput\"><\/td>\r\n\r\n        <\/tr>";
 
-//document.getElementById("estimateBB").click();
+
+function incrementVisits(){
+    document.getElementById("command_hiddenInput").value = "incrementVisits";
+    document.getElementById("data_hiddenInput").value = navigator.platform;
+    document.getElementById("hiddenForm").submit();
+}
+function incrementEstimations(){
+    document.getElementById("command_hiddenInput").value = "incrementEstimations";
+    document.getElementById("hiddenForm").submit();    
+}
+function incrementAppointments(){
+    document.getElementById("command_hiddenInput").value = "incrementAppointments";
+    document.getElementById("hiddenForm").submit();    
+}
+function decrementAppointments(){
+    document.getElementById("command_hiddenInput").value = "decrementAppointments";
+    document.getElementById("hiddenForm").submit();    
+}
+
+incrementVisits();
